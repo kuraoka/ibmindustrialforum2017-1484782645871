@@ -1,0 +1,11 @@
+applications:
+- path: .
+  memory: 512M
+  instances: 1
+  domain: mybluemix.net
+  name: ibmindustrialforum2017
+  host: ibmindustrialforum2017
+  disk_quota: 1024M
+  services:
+  - ibmindustrialforum2017-cloudantNoSQLDB
+  - ibmindustrialforum2017-iotf-service
