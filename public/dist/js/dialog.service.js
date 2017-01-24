@@ -30,14 +30,14 @@ System.register(['angular2/core', 'angular2/http', 'rxjs/add/operator/map'], fun
                     this.http = http;
                 }
                 DialogService.prototype.setup = function () {
-                    return this.http.get('/rest/setup').map(function (res) { return res.json(); });
+                    return this.http.get('https://conversation-enhanced-kuraoka1.mybluemix.net/rest/setup').map(function (res) { return res.json(); });
                 };
                 DialogService.prototype.message = function (workspace_id, payloadToWatson) {
                     var headers = new http_1.Headers();
                     headers.append('Content-Type', 'application/json');
                     if (workspace_id) {
                         payloadToWatson = payloadToWatson || {};
-                        return this.http.post('/rest/conversation/api/v1/workspaces/' + workspace_id.trim() + '/message', JSON.stringify(payloadToWatson), { headers: headers }).map(function (res) { return res.json(); });
+                        return this.http.post('https://conversation-enhanced-kuraoka1.mybluemix.net/rest/conversation/api/v1/workspaces/' + workspace_id.trim() + '/message', JSON.stringify(payloadToWatson), { headers: headers }).map(function (res) { return res.json(); });
                     }
                     else {
                         throw 'workspace_id must be defined!';
